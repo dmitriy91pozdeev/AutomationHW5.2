@@ -38,8 +38,8 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $("button.button").click();
-        $("[data-test-id='error-notification'].notification__content")
-                .shouldHave(Condition.text("Ошибка! Неверно указан логин и пароль"), Duration.ofSeconds(10))
+        $("[data-test-id='error-notification'] .notification__content")
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
                 .shouldBe((Condition.visible));
     }
 
@@ -67,7 +67,7 @@ public class AuthTest {
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
         $("[data-test-id='error-notification'].notification__content")
-                .shouldHave(Condition.text("Ошибка! Неверно указан логин и пароль"), Duration.ofSeconds(10))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
                 .shouldBe((Condition.visible));
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  логином, для заполнения поля формы "Логин" используйте переменную wrongLogin,
@@ -83,7 +83,7 @@ public class AuthTest {
         $("[data-test-id='password'] input").setValue(wrongPassword);
         $("button.button").click();
         $("[data-test-id='error-notification'].notification__content")
-                .shouldHave(Condition.text("Ошибка! Неверно указан логин и пароль"), Duration.ofSeconds(10))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(10))
                 .shouldBe((Condition.visible));
         // TODO: добавить логику теста в рамках которого будет выполнена попытка входа в личный кабинет с неверным
         //  паролем, для заполнения поля формы "Логин" используйте пользователя registeredUser,
